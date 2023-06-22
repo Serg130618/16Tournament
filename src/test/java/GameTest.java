@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 
 import org.junit.jupiter.api.Test;
+
 class GameTest {
     Game game = new Game();
     PlayerData player1 = new PlayerData(1, "Ivan", 70);
@@ -36,10 +37,10 @@ class GameTest {
         game.register("Ivan", player1);
         game.register("Serg", player2);
 
-        int actual = game.round( "Serg", "Serg");
+        int actual = game.round("Serg", "Serg");
         int expected = 0;
 
-        Assertions.assertEquals( expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
