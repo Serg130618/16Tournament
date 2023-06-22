@@ -1,25 +1,17 @@
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class Game {
-    List<Player> players = new ArrayList<>();
+    HashMap<String, PlayerData> players = new HashMap<>();
 
-    public void register(Player player) {
-        players.add(player);
+    public void register(String name, PlayerData player) {
+        players.put(name, player);
     }
 
     public int round(String playerName1, String playerName2) {
-        Player player1 = null;
-        Player player2 = null;
-        for (Player player : players) {
-            if (player.getName().equals(playerName1)) {
-                player1 = player;
-            }
-            if (player.getName().equals(playerName2)) {
-                player2 = player;
-            }
-        }
+
+        PlayerData player1 = players.get(playerName1);
+        PlayerData player2 = players.get(playerName2);
+
         if (player1 == null) {
             throw new NotRegisteredException(playerName1);
         }
@@ -35,4 +27,6 @@ public class Game {
         return 0;
     }
 
+
 }
+
